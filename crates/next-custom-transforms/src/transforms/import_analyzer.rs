@@ -95,7 +95,7 @@ impl Visit for Analyzer<'_> {
 
             self.data
                 .imports
-                .insert(local, (import.src.value.clone(), orig_sym));
+                .insert(local, (src.value.clone(), orig_sym));
         }
     }
 }
