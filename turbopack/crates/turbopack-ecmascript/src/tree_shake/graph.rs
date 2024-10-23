@@ -1503,7 +1503,7 @@ pub(crate) fn encode_base54(init: &mut usize, skip_reserved: bool) -> JsWord {
     s
 }
 
-pub fn get_import_source(import: &ImportDecl) -> Str {
+pub fn get_import_source(import: &ImportDecl) -> &Str {
     import
         .with
         .as_deref()
@@ -1521,10 +1521,10 @@ pub fn get_import_source(import: &ImportDecl) -> Str {
                 };
 
                 if key.value == ASSERT_ORIGINAL_IMPORT_SOURCE_KEY {
-                    return Some(value.clone());
+                    return Some(value);
                 }
             }
             None
         })
-        .unwrap_or_else(|| *import.src.clone())
+        .unwrap_or(&import.src)
 }
