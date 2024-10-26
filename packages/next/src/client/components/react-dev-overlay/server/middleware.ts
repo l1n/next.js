@@ -176,7 +176,7 @@ export async function createOriginalStackFrame({
   }
 }
 
-export async function getSourceMapFromCompilation(
+async function getSourceMapFromCompilation(
   id: string,
   compilation: webpack.Compilation
 ): Promise<RawSourceMap | undefined> {
